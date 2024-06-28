@@ -1,4 +1,4 @@
-CREATE TABLE Product (
+CREATE TABLE IF NOT EXISTS product (
   id SERIAL,
   name VARCHAR(100),
   slogan VARCHAR(250),
@@ -8,7 +8,7 @@ CREATE TABLE Product (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE Features (
+CREATE TABLE IF NOT EXISTS features (
   id SERIAL,
   product_id INTEGER, /*please see addition of foreign key notes below*/
   feature VARCHAR(250),
@@ -16,27 +16,27 @@ CREATE TABLE Features (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE Styles (
-  id SERIAL,
-  productid INTEGER, /*please see addition of foreign key notes below*/
+CREATE TABLE IF NOT EXISTS styles (
+  style_id SERIAL,
+  product_id INTEGER, /*please see addition of foreign key notes below*/
   name VARCHAR(250),
   sale_price NUMERIC NULL,
   original_price NUMERIC,
-  default_style BOOLEAN NOT NULL,
+  "default?" BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE Photos (
+CREATE TABLE IF NOT EXISTS photos (
   id SERIAL,
-  styleid INTEGER, /*please see addition of foreign key notes below*/
+  style_id INTEGER, /*please see addition of foreign key notes below*/
   url VARCHAR(1000),
   thumbnail_url VARCHAR(1500),
   PRIMARY KEY (id)
 );
 
-CREATE TABLE SKUs (
+CREATE TABLE IF NOT EXISTS skus (
   id SERIAL,
-  styleid INTEGER, /*please see addition of foreign key notes below*/
+  style_id INTEGER, /*please see addition of foreign key notes below*/
   size VARCHAR(50),
   quantity NUMERIC,
   PRIMARY KEY (id)

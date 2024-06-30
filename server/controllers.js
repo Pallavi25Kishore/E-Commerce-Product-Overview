@@ -39,7 +39,7 @@ exports.getFeatures = (req, res) => {
 
   client.query(queryString, paramsArr)
     .then((data) => {
-      res.send(data.rows);
+      res.send(data.rows[0]);
     })
     .catch((err) => {
       console.log(err);

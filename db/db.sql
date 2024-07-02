@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS styles (
   sale_price NUMERIC NULL,
   original_price NUMERIC,
   "default?" BOOLEAN NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (style_id)
 );
 
 CREATE TABLE IF NOT EXISTS photos (
@@ -54,7 +54,7 @@ In order to create tables using psql shell:
 
 To LOAD DATA from csv files into the tables i ran the following commmands from psql shell:
 
-1.  COPY product(id, name, slogan, description, category, default_price) FROM '<file path to product.csv>' DELIMITER ',' CSV HEADER;
+1.  COPY product(id, name, slogan, description, category, default_price) FROM '...../product.csv' DELIMITER ',' CSV HEADER;
     - output received - COPY 1000011
     - SELECT COUNT(*) FROM product;
        output:  count
@@ -63,7 +63,7 @@ To LOAD DATA from csv files into the tables i ran the following commmands from p
       - wc -l product.csv
       output: 1000011 - number matches and is not one less than number of rows despite csv file having a header becuase, the last line in csv file dosen't end with \n which is what the wc -l command looks for
 
-2. COPY features(id, product_id, feature, value) FROM '<file path to features.csv' DELIMITER ',' CSV HEADER;
+2. COPY features(id, product_id, feature, value) FROM '..../features.csv' DELIMITER ',' CSV HEADER;
     -output received - COPY 2219279
     -SELECT COUNT(*) FROM features;
       count
@@ -72,7 +72,7 @@ To LOAD DATA from csv files into the tables i ran the following commmands from p
   - wc -l features.csv
       output: 2219279
 
-3. COPY styles(id, productid, name, sale_price, original_price, default_style) FROM '<file path>' DELIMITER ',' CSV HEADER NULL 'null';
+3. COPY styles(style_id, product_id, name, sale_price, original_price, "default?") FROM '..../styles.csv' DELIMITER ',' CSV HEADER NULL 'null';
     -output received - COPY 1958102
     - SELECT COUNT(*) FROM styles;
       count
@@ -82,8 +82,11 @@ To LOAD DATA from csv files into the tables i ran the following commmands from p
      output: 1958102
 
 4. split -l 3000000 photos.csv
-COPY photos(id, styleid, url, thumbnail_url) FROM '<file path>',' CSV HEADER NULL 'null';
-COPY photos(id, styleid, url, thumbnail_url) FROM '<file path>',' CSV NULL 'null';
+
+COPY photos(id, style_id, url, thumbnail_url) FROM '..../xaa' DELIMITER ',' CSV HEADER NULL 'null';
+
+COPY photos(id, style_id, url, thumbnail_url) FROM '..../xab' DELIMITER ',' CSV NULL 'null';
+
     SELECT COUNT(*) FROM photos;
       count
     ---------
@@ -91,7 +94,7 @@ COPY photos(id, styleid, url, thumbnail_url) FROM '<file path>',' CSV NULL 'null
     -wc -l photos.csv
     output: 5655656
 
-5. COPY skus(id, styleid, size, quantity) FROM '/Users/pallavikishore/HackReactorImmersive/SDC/SDC-Product-Overview/ETL/skus.csv' DELIMITER ',' CSV HEADER NULL 'null';
+5. COPY skus(id, style_id, size, quantity) FROM '..../skus.csv' DELIMITER ',' CSV HEADER NULL 'null';
 output received - COPY 11323917
 - wc -l skus.csv
 output: 11323917 */
@@ -106,20 +109,31 @@ REFERENCES product (id);
 
 2. ALTER TABLE styles
 ADD CONSTRAINT fk_styles
-FOREIGN KEY (productid)
+FOREIGN KEY (product_id)
 REFERENCES product (id);
 
 3. ALTER TABLE photos
 ADD CONSTRAINT fk_photos
-FOREIGN KEY (styleid)
-REFERENCES styles (id);
+FOREIGN KEY (style_id)
+REFERENCES styles (style_id);
 
 4. ALTER TABLE skus
 ADD CONSTRAINT fk_skus
-FOREIGN KEY (styleid)
-REFERENCES styles (id);
+FOREIGN KEY (style_id)
+REFERENCES styles (style_id);
 
 */
+
+/* indexing
+
+1. CREATE INDEX features_sk ON features(product_id);
+2. CREATE INDEX styles_sk ON styles(product_id);
+3. CREATE INDEX photos_sk ON photos(style_id);
+4. CREATE INDEX skus_sk ON skus(style_id);
+
+*/
+
+
 
 
 

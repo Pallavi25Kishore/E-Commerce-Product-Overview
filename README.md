@@ -1,4 +1,5 @@
-# E-Commerce Platform - Product Overview - Backend System Design and Optimization
+# E-Commerce Platform - Product Overview 
+**Backend System Design and Optimization**
 
 ## Overview
 Welcome to the repository for the optimized and scaled backend services for the Product Overview feature of an e-commerce platform. This project showcases the transformation from a monolithic system to a web-scaled, highly performant architecture.
@@ -60,8 +61,8 @@ To address the potential database bottleneck, an additional database was added:
 
 ### Final System Design and metrics - Visuals
 
-<div align="center">
-  <img src="/systemdesign.png" alt="Final System design with 2 api servers and 2 databases" width="400" style="border: 2px solid black;"/>
+<div>
+  <img src="/system design.png" alt="Final System design with 2 api servers and 2 databases" width="600" style="border: 2px solid black;"/>
 </div>
 
 **Products endpoint metrics**

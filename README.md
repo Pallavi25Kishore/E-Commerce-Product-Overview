@@ -29,6 +29,22 @@ To address the potential database bottleneck, an additional database was added:
 - This increased the performance of the styles endpoint to 1200 RPS with an error rate of less than 0.1% and latency under 700ms.
 - Database scaling significantly enhanced the performance of complex queries but had less impact on simpler queries.
 
+### Final System Design and metrics
+
+![Final System design with 2 api servers and 2 databases](/system design.png)
+
+**Products endpoint metrics**
+
+![Products endpoint 2000 RPS](/products.png)
+
+**Products endpoint metrics**
+
+![Features endpoint 2000 RPS](/features.png)
+
+**Products endpoint metrics**
+
+![Styles endpoint 1200 RPS](/styles.png)
+
 ## Technologies
 ### Front-End:
 ![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)

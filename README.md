@@ -29,22 +29,6 @@ To address the potential database bottleneck, an additional database was added:
 - This increased the performance of the styles endpoint to 1200 RPS with an error rate of less than 0.1% and latency under 700ms.
 - Database scaling significantly enhanced the performance of complex queries but had less impact on simpler queries.
 
-### Final System Design and metrics
-
-![Final System design with 2 api servers and 2 databases](/system design.png)
-
-**Products endpoint metrics**
-
-![Products endpoint 2000 RPS](/products.png)
-
-**Products endpoint metrics**
-
-![Features endpoint 2000 RPS](/features.png)
-
-**Products endpoint metrics**
-
-![Styles endpoint 1200 RPS](/styles.png)
-
 ## Technologies
 ### Front-End:
 ![React](https://img.shields.io/badge/react-black?style=for-the-badge&logo=react)
@@ -73,6 +57,30 @@ To address the potential database bottleneck, an additional database was added:
  - [X] Introduce additional database server to address potential database bottleneck.
  - [X] Conduct extensive load testing using Grafana k6 and Loader.io.
  - [X] Achieve and exceed performance targets with detailed monitoring and optimization.
+
+### Final System Design and metrics - Visuals
+
+<div align="center">
+  <img src="/systemdesign.png" alt="Final System design with 2 api servers and 2 databases" width="400" style="border: 2px solid black;"/>
+</div>
+
+**Products endpoint metrics**
+
+<div align="center">
+  <img src="/products.png" alt="Products endpoint 2000 RPS" width="400" style="border: 2px solid black;"/>
+</div>
+
+**Features endpoint metrics**
+
+<div align="center">
+  <img src="/features.png" alt="Features endpoint 2000 RPS" width="400" style="border: 2px solid black;"/>
+</div>
+
+**Styles endpoint metrics**
+
+<div align="center">
+  <img src="/styles.png" alt="Styles endpoint 1200 RPS" width="400" style="border: 2px solid black;"/>
+</div>
 
 ## :white_check_mark: Getting Started
 ###  Prerequisites

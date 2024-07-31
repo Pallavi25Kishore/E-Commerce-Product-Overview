@@ -68,8 +68,9 @@ npm install
 
 ### Installation
 1. Clone the repo.
-sh
+```sh
   git clone https://github.com/Pallavi25Kishore/E-Commerce-Product-Overview.git
+```
 
 2. Install NPM packages.
 ```sh

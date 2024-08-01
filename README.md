@@ -67,19 +67,19 @@ To address the potential database bottleneck, an additional database was added:
 
 **Products endpoint metrics:**
 
-<div >
+<div align="center">
   <img src="/products.png" alt="Products endpoint 2000 RPS" width="600" style="border: 2px solid black;"/>
 </div>
 
 **Features endpoint metrics:**
 
-<div>
+<div align="center">
   <img src="/features.png" alt="Features endpoint 2000 RPS" width="600" style="border: 2px solid black;"/>
 </div>
 
 **Styles endpoint metrics:**
 
-<div>
+<div align="center">
   <img src="/styles.png" alt="Styles endpoint 1200 RPS" width="600" style="border: 2px solid black;"/>
 </div>
 

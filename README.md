@@ -61,23 +61,23 @@ To address the potential database bottleneck, an additional database was added:
 
 ### :gem:Final System Design and metrics - Visuals
 
-<div>
+<div align="center">
   <img src="/system design.png" alt="Final System design with 2 api servers and 2 databases" width="600" style="border: 2px solid black;"/>
 </div>
 
-**Products endpoint metrics**
+**Products endpoint metrics:**
 
 <div >
   <img src="/products.png" alt="Products endpoint 2000 RPS" width="600" style="border: 2px solid black;"/>
 </div>
 
-**Features endpoint metrics**
+**Features endpoint metrics:**
 
 <div>
   <img src="/features.png" alt="Features endpoint 2000 RPS" width="600" style="border: 2px solid black;"/>
 </div>
 
-**Styles endpoint metrics**
+**Styles endpoint metrics:**
 
 <div>
   <img src="/styles.png" alt="Styles endpoint 1200 RPS" width="600" style="border: 2px solid black;"/>
